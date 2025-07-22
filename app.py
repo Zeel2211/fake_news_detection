@@ -40,7 +40,7 @@ if st.button("Analyze"):
 
         predicted_class = model.classes_[prediction_probs.argmax()]
 
-        if predicted_class == 1: 
+        if predicted_class >= 1: 
             label = "✅ Real News"
         else:
             label = "🚫 Fake News"
