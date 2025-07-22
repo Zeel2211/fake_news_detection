@@ -40,10 +40,10 @@ if st.button("Analyze"):
 
         predicted_class = model.classes_[prediction_probs.argmax()]
 
-        if predicted_class == 1: 
-            label = f"✅ Real News {predicted_class}"
+        if predicted_class == "real": 
+            label = f"✅ Real News"
         else:
-            label = f"🚫 Fake News {predicted_class}"
+            label = f"🚫 Fake News"
 
         st.subheader(f"Prediction: {label}")
         st.write(f"Confidence scores: Fake = {prediction_probs[0]:.2f}, Real = {prediction_probs[1]:.2f}")
