@@ -38,12 +38,12 @@ if st.button("Analyze"):
         vec = vectorizer.transform([cleaned])
         prediction_probs = model.predict_proba(vec)[0]
 
-        predicted_class = int(model.classes_[prediction_probs.argmax()])
+        predicted_class = model.classes_[prediction_probs.argmax()]
 
-        if predicted_class >= 1: 
-            label = "✅ Real News"
+        if predicted_class == 1: 
+            label = f"✅ Real News {predicted_class}"
         else:
-            label = "🚫 Fake News"
+            label = f"🚫 Fake News {predicted_class}"
 
         st.subheader(f"Prediction: {label}")
         st.write(f"Confidence scores: Fake = {prediction_probs[0]:.2f}, Real = {prediction_probs[1]:.2f}")
