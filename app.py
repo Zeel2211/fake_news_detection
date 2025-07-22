@@ -38,7 +38,7 @@ if st.button("Analyze"):
         vec = vectorizer.transform([cleaned])
         prediction_probs = model.predict_proba(vec)[0]
 
-        predicted_class = model.classes_[prediction_probs.argmax()]
+        predicted_class = int(model.classes_[prediction_probs.argmax()])
 
         if predicted_class >= 1: 
             label = "✅ Real News"
